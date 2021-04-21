@@ -1,14 +1,17 @@
 #include "game.h"
 int main() {
 	Bord game;
-	game.random_ships(game.Enemybord);
-	game.print(game.Enemybord);
 	coords XY;
-	std::cin >> XY.x;
-	std::cin >> XY.y;
-	game.print(game.Hitbord);
-	game.turn(XY);
-	game.print(game.Hitbord);
+	game.random_ships(game.Enemybord);
+	game.random_ships(game.Mybord);
+	game.print(game.Mybord);
 	game.print(game.Enemybord);
+
+
+	for (int i = 0; i < 15; i++) {
+		XY = game.enter_XY();
+		game.turn(XY);
+		game.enemy_turn();
+	}
 	return 0;
 }
